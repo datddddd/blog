@@ -15,17 +15,31 @@
   "type": "commonjs",
   "main": "src/index.js",
   "scripts": {
+    "beauti":"lint-staged ",
     "watch": "sass --watch src/resources/scss/app.scss src/public/css/app.css",
     "start": "nodemon --inspect src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "lint-staged": {
+    "*.{js,json,scss}": [
+      "prettier --single-quote --trailing-comma all --tab-width 2 --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "express": "^5.2.1",
     "express-handlebars": "^8.0.6"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "morgan": "^1.10.1",
     "nodemon": "^3.1.14",
+    "prettier": "^3.8.1",
     "sass": "^1.97.3"
   }
 }

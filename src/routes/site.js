@@ -8,5 +8,4 @@ const siteController = require('../app/controllers/SiteController');
 router.get('/search', siteController.show);
 router.use('/', siteController.index);
 
-
 module.exports = router;
